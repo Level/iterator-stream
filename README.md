@@ -44,6 +44,8 @@ $ npm install level-iterator-stream
   When the stream ends, the `iterator` will be closed and afterwards a
   `"close"` event emitted.
 
+  `.destroy()` will force close the underlying iterator.
+
 ## Publishers
 
 * [@juliangruber](https://github.com/juliangruber)
