@@ -20,6 +20,7 @@ ReadStream.prototype._read = function(){
   if (this._destroyed) return;
 
   this._iterator.next(function(err, key, value){
+    if (self._destroyed) return;
     if (err) return self.emit('error', err);
     if (key === undefined && value === undefined) {
       self.push(null);
