@@ -40,3 +40,8 @@ test('simple', function(t){
   }));
 });
 
+test('destroy', function(t){
+  var stream = iteratorStream(db.iterator());
+  stream.on('close', t.end.bind(t));
+  stream.destroy();
+});
