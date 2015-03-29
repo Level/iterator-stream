@@ -34,6 +34,12 @@ $ npm install level-iterator-stream
   `require('readable-stream').Readable` constructor, with `objectMode` forced
   to `true`.
 
+  For each key/value pair found, an object with `{ key, value }` will be
+  emitted.
+
+  When the stream ends, the `iterator` will be closed and afterwards a
+  `"close"` event emitted.
+
 ## License
 
   MIT
