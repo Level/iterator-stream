@@ -1,0 +1,21 @@
+{
+  "name": "level-iterator-stream",
+  "version": "0.0.0",
+  "description": "Turn a leveldown iterator into a readable stream",
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": "Level/level-iterator-stream",
+  "devDependencies": {
+    "abstract-leveldown": "^2.1.0",
+    "leveldown": "^0.10.4",
+    "tape": "^3.5.0",
+    "through2": "^0.6.3"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "inherits": "^2.0.1",
+    "readable-stream": "^1.0.33",
+    "xtend": "^4.0.0"
+  }
+}
