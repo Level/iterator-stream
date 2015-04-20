@@ -38,8 +38,8 @@ $ npm install level-iterator-stream
   `require('readable-stream').Readable` constructor, with `objectMode` forced
   to `true`.
 
-  For each key/value pair found, an object with `{ key, value }` will be
-  emitted.
+  If `options.decoder` is passed, each key/value pair will be transformed by it.
+  Otherwise, an object with `{ key, value }` will be emitted.
 
   When the stream ends, the `iterator` will be closed and afterwards a
   `"close"` event emitted.

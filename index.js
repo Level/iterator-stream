@@ -1,6 +1,7 @@
 var inherits = require('inherits');
 var Readable = require('readable-stream').Readable;
 var extend = require('xtend');
+var EncodingError = require('level-errors').EncodingError;
 
 module.exports = ReadStream;
 inherits(ReadStream, Readable);
@@ -12,6 +13,8 @@ function ReadStream(iterator, options){
   }));
   this._iterator = iterator;
   this._destroyed = false;
+  this._decoder = null;
+  if (options && options.decoder) this._decoder = options.decoder;
   this.on('end', this._cleanup.bind(this));
 }
 
@@ -25,7 +28,14 @@ ReadStream.prototype._read = function(){
     if (key === undefined && value === undefined) {
       self.push(null);
     } else {
-      self.push({ key: key, value: value });
+      if (!self._decoder) return self.push({ key: key, value: value });
+
+      try {
+        var value = self._decoder(key, value);
+      } catch (err) {
+        return self.emit('error', new EncodingError(err));
+      }
+      self.push(value);
     }
   });
 };

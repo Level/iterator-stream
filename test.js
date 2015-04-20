@@ -3,6 +3,8 @@ var leveldown = require('leveldown');
 var iteratorStream = require('./');
 var through2 = require('through2');
 var abstract = require('abstract-leveldown');
+var Codec = require('level-codec');
+var EncodingError = require('level-errors').EncodingError;
 
 var db;
 var data = [
@@ -44,4 +46,28 @@ test('destroy', function(t){
   var stream = iteratorStream(db.iterator());
   stream.on('close', t.end.bind(t));
   stream.destroy();
+});
+
+test('decoder', function(t){
+  var codec = new Codec({ valueEncoding: 'binary' });
+  var stream = iteratorStream(db.iterator(), {
+    decoder: codec.createStreamDecoder({ values: true })
+  });
+  stream.once('data', function(value){
+    t.ok(Buffer.isBuffer(value));
+    t.equal(value.toString(), 'bar1');
+    t.end();
+  });
+});
+
+test('decoder error', function(t){
+  var codec = new Codec({ valueEncoding: 'json' });
+  var stream = iteratorStream(db.iterator(), {
+    decoder: codec.createStreamDecoder({ values: true })
+  });
+  stream.once('error', function(err){
+    t.ok(err instanceof EncodingError);
+    t.end();
+  });
+  stream.on('data', function(){});
 });
