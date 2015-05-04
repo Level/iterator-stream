@@ -6,16 +6,18 @@
     "test": "make test"
   },
   "repository": "Level/level-iterator-stream",
+  "dependencies": {
+    "inherits": "^2.0.1",
+    "level-errors": "^1.0.3",
+    "readable-stream": "^1.0.33",
+    "xtend": "^4.0.0"
+  },
   "devDependencies": {
     "abstract-leveldown": "^2.1.0",
+    "level-codec": "git://github.com/level/codec.git#add/stream-decoder",
     "leveldown": "^0.10.4",
     "tape": "^3.5.0",
     "through2": "^0.6.3"
   },
-  "license": "MIT",
-  "dependencies": {
-    "inherits": "^2.0.1",
-    "readable-stream": "^1.0.33",
-    "xtend": "^4.0.0"
-  }
+  "license": "MIT"
 }
