@@ -33,7 +33,9 @@ ReadStream.prototype._read = function(){
       try {
         var value = self._decoder(key, value);
       } catch (err) {
-        return self.emit('error', new EncodingError(err));
+        self.emit('error', new EncodingError(err));
+        self.push(null);
+        return;
       }
       self.push(value);
     }

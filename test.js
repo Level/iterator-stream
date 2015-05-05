@@ -61,13 +61,16 @@ test('decoder', function(t){
 });
 
 test('decoder error', function(t){
+  t.plan(2);
   var codec = new Codec({ valueEncoding: 'json' });
   var stream = iteratorStream(db.iterator(), {
     decoder: codec.createStreamDecoder({ values: true })
   });
   stream.once('error', function(err){
     t.ok(err instanceof EncodingError);
-    t.end();
+  });
+  stream.once('close', function(){
+    t.ok(true);
   });
   stream.on('data', function(){});
 });
