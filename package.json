@@ -14,7 +14,7 @@
   },
   "devDependencies": {
     "abstract-leveldown": "^2.1.0",
-    "level-codec": "git://github.com/level/codec.git#add/stream-decoder",
+    "level-codec": "^6.0.0",
     "leveldown": "^0.10.4",
     "tape": "^3.5.0",
     "through2": "^0.6.3"
