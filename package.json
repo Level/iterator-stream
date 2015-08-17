@@ -5,7 +5,7 @@
   "scripts": {
     "test": "make test"
   },
-  "repository": "Level/level-iterator-stream",
+  "repository": "Level/iterator-stream",
   "dependencies": {
     "inherits": "^2.0.1",
     "level-errors": "^1.0.3",
