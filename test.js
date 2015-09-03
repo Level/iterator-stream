@@ -74,3 +74,22 @@ test('decoder error', function(t){
   });
   stream.on('data', function(){});
 });
+
+test('close on resume', function(t){
+  var stream = iteratorStream(db.iterator());
+
+  var i = 0;
+  stream.on('data', function(item) {
+    stream.pause();
+
+    setTimeout(function() {
+      i++;
+      stream.resume();
+    }, 10);
+  });
+
+  stream.on('close', function() {
+    t.equal(i, 3, 'third iteration should already be done')
+    t.end();
+  });
+});
