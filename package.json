@@ -16,7 +16,7 @@
     "abstract-leveldown": "^2.1.0",
     "level-codec": "^6.0.0",
     "leveldown": "^1.4.1",
-    "tape": "^4.3.0",
+    "tape": "^4.4.0",
     "through2": "^2.0.0"
   },
   "license": "MIT"
