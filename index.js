@@ -13,9 +13,21 @@ function ReadStream(iterator, options){
   }));
   this._iterator = iterator;
   this._destroyed = false;
+  this._paused = false;
+  this._closer = false;
   this._decoder = null;
   if (options && options.decoder) this._decoder = options.decoder;
   this.on('end', this._cleanup.bind(this));
+  var self = this;
+  this.on('pause', function() {
+    self._paused = true;
+  });
+  this.on('resume', function() {
+    self._paused = false;
+    if (self._closer) {
+      self._closer();
+    }
+  });
 }
 
 ReadStream.prototype._read = function(){
@@ -45,6 +57,11 @@ ReadStream.prototype._read = function(){
 ReadStream.prototype.destroy =
 ReadStream.prototype._cleanup = function(){
   var self = this;
+  if (this._paused) {
+    this._closer = this._cleanup;
+    return;
+  }
+
   if (this._destroyed) return;
   this._destroyed = true;
 
