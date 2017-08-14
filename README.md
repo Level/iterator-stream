@@ -5,7 +5,7 @@
 
 **Turn a leveldown iterator into a readable stream**
 
-[![Build Status](https://travis-ci.org/Level/iterator-stream.png)](https://travis-ci.org/Level/iterator-stream)
+[![Build Status](https://travis-ci.org/Level/iterator-stream.png)](https://travis-ci.org/Level/iterator-stream) [![Greenkeeper badge](https://badges.greenkeeper.io/Level/iterator-stream.svg)](https://greenkeeper.io/)
 
 ## Example
 
