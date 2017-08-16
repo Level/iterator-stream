@@ -16,6 +16,7 @@
     "abstract-leveldown": "^2.1.0",
     "level-codec": "^7.0.0",
     "leveldown": "^1.4.1",
+    "standard": "^10.0.3",
     "tape": "^4.4.0",
     "through2": "^2.0.0"
   },
