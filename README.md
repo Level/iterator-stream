@@ -10,18 +10,18 @@
 ## Example
 
 ```js
-var iteratorStream = require('level-iterator-stream');
-var leveldown = require('leveldown');
+const iteratorStream = require('level-iterator-stream')
+const leveldown = require('leveldown')
 
-var db = leveldown(__dirname + '/db');
-db.open(function(err){
-  if (err) throw err;
+const db = leveldown(__dirname + '/db')
+db.open(function (err) {
+  if (err) throw err
 
-  var stream = iteratorStream(db.iterator());
-  stream.on('data', function(kv){
-    console.log('%s -> %s', kv.key, kv.value);
-  });
-});
+  var stream = iteratorStream(db.iterator())
+  stream.on('data', function (kv) {
+    console.log('%s -> %s', kv.key, kv.value)
+  })
+})
 ```
 
 ## Installation
