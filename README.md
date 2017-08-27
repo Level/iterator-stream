@@ -12,12 +12,11 @@
 ```js
 const iteratorStream = require('level-iterator-stream')
 const leveldown = require('leveldown')
-
 const db = leveldown(__dirname + '/db')
 db.open(function (err) {
   if (err) throw err
 
-  var stream = iteratorStream(db.iterator())
+  const stream = iteratorStream(db.iterator())
   stream.on('data', function (kv) {
     console.log('%s -> %s', kv.key, kv.value)
   })
@@ -48,6 +47,7 @@ $ npm install level-iterator-stream
 ## Publishers
 
 * [@juliangruber](https://github.com/juliangruber)
+* [@ralphtheninja](https://github.com/ralphtheninja)
 
 ## License &amp; copyright
 
