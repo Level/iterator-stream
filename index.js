@@ -1,25 +1,25 @@
 var inherits = require('inherits')
 var Readable = require('readable-stream').Readable
 var extend = require('xtend')
-var EncodingError = require('level-errors').EncodingError
 
 module.exports = ReadStream
 inherits(ReadStream, Readable)
 
 function ReadStream (iterator, options) {
   if (!(this instanceof ReadStream)) return new ReadStream(iterator, options)
+  options = options || {}
   Readable.call(this, extend(options, {
     objectMode: true
   }))
   this._iterator = iterator
   this._destroyed = false
-  this._decoder = null
-  if (options && options.decoder) this._decoder = options.decoder
+  this._options = options
   this.on('end', this._cleanup.bind(this))
 }
 
 ReadStream.prototype._read = function () {
   var self = this
+  var options = this._options
   if (this._destroyed) return
 
   this._iterator.next(function (err, key, value) {
@@ -27,17 +27,12 @@ ReadStream.prototype._read = function () {
     if (err) return self.emit('error', err)
     if (key === undefined && value === undefined) {
       self.push(null)
-    } else {
-      if (!self._decoder) return self.push({ key: key, value: value })
-
-      try {
-        value = self._decoder(key, value)
-      } catch (err) {
-        self.emit('error', new EncodingError(err))
-        self.push(null)
-        return
-      }
+    } else if (options.keys !== false && options.values === false) {
+      self.push(key)
+    } else if (options.keys === false && options.values !== false) {
       self.push(value)
+    } else {
+      self.push({ key: key, value: value })
     }
   })
 }

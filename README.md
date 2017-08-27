@@ -3,7 +3,7 @@
 
 <img alt="LevelDB Logo" height="100" src="http://leveldb.org/img/logo.svg">
 
-**Turn a leveldown iterator into a readable stream**
+> Turn a leveldown iterator into a readable stream
 
 [![Build Status](https://travis-ci.org/Level/iterator-stream.png)](https://travis-ci.org/Level/iterator-stream) [![Greenkeeper badge](https://badges.greenkeeper.io/Level/iterator-stream.svg)](https://greenkeeper.io/)
 
@@ -38,8 +38,7 @@ $ npm install level-iterator-stream
   `require('readable-stream').Readable` constructor, with `objectMode` forced
   to `true`.
 
-  If `options.decoder` is passed, each key/value pair will be transformed by it.
-  Otherwise, an object with `{ key, value }` will be emitted.
+  Set `options.keys` or `options.values` to `false` to only get values / keys. Otherwise receive `{ key, value }` objects.
 
   When the stream ends, the `iterator` will be closed and afterwards a
   `"close"` event emitted.
