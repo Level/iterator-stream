@@ -3,8 +3,6 @@ var path = require('path')
 var leveldown = require('leveldown')
 var iteratorStream = require('./')
 var through2 = require('through2')
-var Codec = require('level-codec')
-var EncodingError = require('level-errors').EncodingError
 
 var db
 var data = [
@@ -24,7 +22,7 @@ test('setup', function (t) {
   })
 })
 
-test('simple', function (t) {
+test('keys and values', function (t) {
   var idx = 0
   var stream = iteratorStream(db.iterator())
   stream.pipe(through2.obj(function (kv, _, done) {
@@ -48,29 +46,20 @@ test('destroy', function (t) {
   stream.destroy()
 })
 
-test('decoder', function (t) {
-  var codec = new Codec({ valueEncoding: 'binary' })
-  var stream = iteratorStream(db.iterator(), {
-    decoder: codec.createStreamDecoder({ values: true })
-  })
+test('keys=false', function (t) {
+  var stream = iteratorStream(db.iterator(), { keys: false })
   stream.once('data', function (value) {
-    t.ok(Buffer.isBuffer(value))
+    stream.destroy()
     t.equal(value.toString(), 'bar1')
     t.end()
   })
 })
 
-test('decoder error', function (t) {
-  t.plan(2)
-  var codec = new Codec({ valueEncoding: 'json' })
-  var stream = iteratorStream(db.iterator(), {
-    decoder: codec.createStreamDecoder({ values: true })
+test('values=false', function (t) {
+  var stream = iteratorStream(db.iterator(), { values: false })
+  stream.once('data', function (key) {
+    stream.destroy()
+    t.equal(key.toString(), 'foobatch1')
+    t.end()
   })
-  stream.once('error', function (err) {
-    t.ok(err instanceof EncodingError)
-  })
-  stream.once('close', function () {
-    t.ok(true)
-  })
-  stream.on('data', function () {})
 })
