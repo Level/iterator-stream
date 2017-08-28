@@ -14,9 +14,9 @@ var data = [
 test('setup', function (t) {
   db = leveldown(path.join(__dirname, 'db-test'))
   db.open(function (err) {
-    t.error(err)
+    t.error(err, 'no error')
     db.batch(data, function (err) {
-      t.error(err)
+      t.error(err, 'no error')
       t.end()
     })
   })
@@ -40,10 +40,84 @@ test('keys and values', function (t) {
   }))
 })
 
-test('destroy', function (t) {
+test('.destroy closes the stream', function (t) {
   var stream = iteratorStream(db.iterator())
   stream.on('close', t.end.bind(t))
   stream.destroy()
+})
+
+test('.destroy during iterator.next 1', function (t) {
+  var stream
+  var iterator = db.iterator()
+  var next = iterator.next.bind(iterator)
+  iterator.next = function (cb) {
+    t.pass('should be called once')
+    next(cb)
+    stream.destroy()
+  }
+  stream = iteratorStream(iterator)
+  stream.on('data', function (data) {
+    t.fail('should not be called')
+  })
+  stream.on('close', t.end.bind(t))
+})
+
+test('.destroy during iterator.next 2', function (t) {
+  var stream
+  var iterator = db.iterator()
+  var next = iterator.next.bind(iterator)
+  var count = 0
+  iterator.next = function (cb) {
+    t.pass('should be called')
+    next(cb)
+    if (++count === 2) {
+      stream.destroy()
+    }
+  }
+  stream = iteratorStream(iterator)
+  stream.on('data', function (data) {
+    t.pass('should be called')
+  })
+  stream.on('close', t.end.bind(t))
+})
+
+test('.destroy after iterator.next 1', function (t) {
+  var stream
+  var iterator = db.iterator()
+  var next = iterator.next.bind(iterator)
+  iterator.next = function (cb) {
+    next(function (err, key, value) {
+      stream.destroy()
+      cb(err, key, value)
+      t.pass('should be called')
+    })
+  }
+  stream = iteratorStream(iterator)
+  stream.on('data', function (data) {
+    t.fail('should not be called')
+  })
+  stream.on('close', t.end.bind(t))
+})
+
+test('.destroy after iterator.next 2', function (t) {
+  var stream
+  var iterator = db.iterator()
+  var next = iterator.next.bind(iterator)
+  var count = 0
+  iterator.next = function (cb) {
+    next(function (err, key, value) {
+      if (++count === 2) {
+        stream.destroy()
+      }
+      cb(err, key, value)
+      t.pass('should be called')
+    })
+  }
+  stream = iteratorStream(iterator)
+  stream.on('data', function (data) {
+    t.pass('should be called')
+  })
+  stream.on('close', t.end.bind(t))
 })
 
 test('keys=false', function (t) {
