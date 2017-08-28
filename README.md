@@ -12,6 +12,7 @@
 ```js
 const iteratorStream = require('level-iterator-stream')
 const leveldown = require('leveldown')
+
 const db = leveldown(__dirname + '/db')
 db.open(function (err) {
   if (err) throw err
