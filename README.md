@@ -6,17 +6,17 @@
 
 [![Build Status](https://travis-ci.org/Level/iterator-stream.png)](https://travis-ci.org/Level/iterator-stream)
 
-## Example
+## Usage
 
 ```js
-const iteratorStream = require('level-iterator-stream')
-const leveldown = require('leveldown')
+var iteratorStream = require('level-iterator-stream')
+var leveldown = require('leveldown')
 
-const db = leveldown(__dirname + '/db')
+var db = leveldown(__dirname + '/db')
 db.open(function (err) {
   if (err) throw err
 
-  const stream = iteratorStream(db.iterator())
+  var stream = iteratorStream(db.iterator())
   stream.on('data', function (kv) {
     console.log('%s -> %s', kv.key, kv.value)
   })
