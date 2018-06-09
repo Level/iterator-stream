@@ -3,6 +3,7 @@
 > Turn a leveldown iterator into a readable stream
 
 [![level badge][level-badge]](https://github.com/level/awesome)
+[![npm](https://img.shields.io/npm/v/level-iterator-stream.svg)](https://www.npmjs.com/package/level-iterator-stream)
 [![Build Status](https://img.shields.io/travis/Level/iterator-stream.svg)](https://travis-ci.org/Level/iterator-stream)
 
 ## Usage
