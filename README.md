@@ -41,11 +41,6 @@ When the stream ends, the `iterator` will be closed and afterwards a `"close"` e
 
 `.destroy()` will force close the underlying iterator.
 
-## Publishers
-
-* [@juliangruber](https://github.com/juliangruber)
-* [@ralphtheninja](https://github.com/ralphtheninja)
-
 ## License &amp; copyright
 
 Copyright (c) 2012-2017 LevelUP contributors.
