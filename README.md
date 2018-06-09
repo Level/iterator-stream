@@ -41,8 +41,8 @@ When the stream ends, the `iterator` will be closed and afterwards a `"close"` e
 
 `.destroy()` will force close the underlying iterator.
 
-## License &amp; copyright
+## License
 
-Copyright (c) 2012-2017 LevelUP contributors.
+Copyright &copy; 2012-present `level-iterator-stream` contributors.
 
-LevelUP is licensed under the MIT license. All rights not explicitly granted in the MIT license are reserved. See the included LICENSE.md file for more details.
+`level-iterator-stream` is licensed under the MIT license. All rights not explicitly granted in the MIT license are reserved. See the included `LICENSE.md` file for more details.
