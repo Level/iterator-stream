@@ -3,7 +3,7 @@
 > Turn a leveldown iterator into a readable stream
 
 [![level badge][level-badge]](https://github.com/level/awesome)
-[![Build Status](https://travis-ci.org/Level/iterator-stream.png)](https://travis-ci.org/Level/iterator-stream)
+[![Build Status](https://img.shields.io/travis/Level/iterator-stream.svg)](https://travis-ci.org/Level/iterator-stream)
 
 ## Usage
 
