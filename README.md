@@ -1,9 +1,8 @@
 # level-iterator-stream
 
-<img alt="LevelDB Logo" height="100" src="http://leveldb.org/img/logo.svg">
-
 > Turn a leveldown iterator into a readable stream
 
+[![level badge][level-badge]](https://github.com/level/awesome)
 [![Build Status](https://travis-ci.org/Level/iterator-stream.png)](https://travis-ci.org/Level/iterator-stream)
 
 ## Usage
@@ -46,3 +45,5 @@ When the stream ends, the `iterator` will be closed and afterwards a `"close"` e
 Copyright &copy; 2012-present `level-iterator-stream` contributors.
 
 `level-iterator-stream` is licensed under the MIT license. All rights not explicitly granted in the MIT license are reserved. See the included `LICENSE.md` file for more details.
+
+[level-badge]: http://leveldb.org/img/badge.svg
