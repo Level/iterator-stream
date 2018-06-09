@@ -1,11 +1,10 @@
-
 # level-iterator-stream
 
 <img alt="LevelDB Logo" height="100" src="http://leveldb.org/img/logo.svg">
 
 > Turn a leveldown iterator into a readable stream
 
-[![Build Status](https://travis-ci.org/Level/iterator-stream.png)](https://travis-ci.org/Level/iterator-stream) [![Greenkeeper badge](https://badges.greenkeeper.io/Level/iterator-stream.svg)](https://greenkeeper.io/)
+[![Build Status](https://travis-ci.org/Level/iterator-stream.png)](https://travis-ci.org/Level/iterator-stream)
 
 ## Example
 
