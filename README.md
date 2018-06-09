@@ -31,18 +31,15 @@ $ npm install level-iterator-stream
 
 ## API
 
-### iteratorStream(iterator[, options])
+### `stream = iteratorStream(iterator[, options])`
 
-  Create a readable stream from `iterator`. `options` are passed down to the
-  `require('readable-stream').Readable` constructor, with `objectMode` forced
-  to `true`.
+Create a readable stream from `iterator`. `options` are passed down to the `require('readable-stream').Readable` constructor, with `objectMode` forced to `true`.
 
-  Set `options.keys` or `options.values` to `false` to only get values / keys. Otherwise receive `{ key, value }` objects.
+Set `options.keys` or `options.values` to `false` to only get values / keys. Otherwise receive `{ key, value }` objects.
 
-  When the stream ends, the `iterator` will be closed and afterwards a
-  `"close"` event emitted.
+When the stream ends, the `iterator` will be closed and afterwards a `"close"` event emitted.
 
-  `.destroy()` will force close the underlying iterator.
+`.destroy()` will force close the underlying iterator.
 
 ## Publishers
 
