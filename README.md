@@ -12,6 +12,8 @@
 
 ## Usage
 
+**If you are upgrading:** please see [UPGRADING.md](UPGRADING.md).
+
 ```js
 var iteratorStream = require('level-iterator-stream')
 var leveldown = require('leveldown')
