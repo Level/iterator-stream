@@ -4,6 +4,7 @@
 
 [![level badge][level-badge]](https://github.com/level/awesome)
 [![npm](https://img.shields.io/npm/v/level-iterator-stream.svg)](https://www.npmjs.com/package/level-iterator-stream)
+![Node version](https://img.shields.io/node/v/level-iterator-stream.svg)
 [![Build Status](https://img.shields.io/travis/Level/iterator-stream.svg)](https://travis-ci.org/Level/iterator-stream)
 
 ## Usage
