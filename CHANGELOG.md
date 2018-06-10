@@ -2,12 +2,15 @@
 
 ## [Unreleased]
 
+## [2.0.1] - 2018-06-10
+
 ### Changed
 * Upgrade `leveldown` devDependency from `^1.4.1` to `^4.0.0` (@ralphtheninja)
 * Upgrade `standard` devDependency from `^10.0.3` to `^11.0.0` (@ralphtheninja)
 
 ### Added
 * Add node 9 and 10 to Travis (@ralphtheninja)
+* Add `UPGRADING.md` (@ralphtheninja)
 
 ### Removed
 * Remove node 7 from Travis (@ralphtheninja)
@@ -70,7 +73,8 @@
 
 :seedling: Initial release.
 
-[Unreleased]: https://github.com/level/iterator-stream/compare/v2.0.0...HEAD
+[Unreleased]: https://github.com/level/iterator-stream/compare/v2.0.1...HEAD
+[2.0.1]: https://github.com/level/iterator-stream/compare/v2.0.0...v2.0.1
 [2.0.0]: https://github.com/level/iterator-stream/compare/v1.3.1...v2.0.0
 [1.3.1]: https://github.com/level/iterator-stream/compare/v1.3.0...v1.3.1
 [1.3.0]: https://github.com/level/iterator-stream/compare/v1.2.0...v1.3.0
