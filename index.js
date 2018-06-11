@@ -1,5 +1,5 @@
 var inherits = require('inherits')
-var Readable = require('readable-stream').Readable
+var Readable = require('stream').Readable || require('readable-stream').Readable
 var extend = require('xtend')
 
 module.exports = ReadStream
