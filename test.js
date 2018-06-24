@@ -60,7 +60,7 @@ test('error from iterator.next', function (t) {
   })
 
   iterator.next = function (cb) {
-    cb(new Error('next'))
+    process.nextTick(cb, new Error('next'))
   }
 })
 
