@@ -12,19 +12,19 @@ function ReadStream (iterator, options) {
     objectMode: true
   }))
   this._iterator = iterator
-  this._destroyed = false
   this._options = options
-  this.on('end', this._cleanup.bind(this))
+  this.on('end', this.destroy.bind(this, null, null))
 }
 
 ReadStream.prototype._read = function () {
   var self = this
   var options = this._options
-  if (this._destroyed) return
+  if (this.destroyed) return
 
   this._iterator.next(function (err, key, value) {
-    if (self._destroyed) return
-    if (err) return self.emit('error', err)
+    if (self.destroyed) return
+    if (err) return self.destroy(err)
+
     if (key === undefined && value === undefined) {
       self.push(null)
     } else if (options.keys !== false && options.values === false) {
@@ -37,14 +37,16 @@ ReadStream.prototype._read = function () {
   })
 }
 
-ReadStream.prototype.destroy =
-ReadStream.prototype._cleanup = function () {
+ReadStream.prototype._destroy = function (err, callback) {
   var self = this
-  if (this._destroyed) return
-  this._destroyed = true
 
-  this._iterator.end(function (err) {
-    if (err) return self.emit('error', err)
-    self.emit('close')
+  this._iterator.end(function (err2) {
+    callback(err || err2)
+
+    // TODO when the next readable-stream (mirroring node v10) is out:
+    // remove this. Since nodejs/node#19836, streams always emit close.
+    process.nextTick(function () {
+      self.emit('close')
+    })
   })
 }
