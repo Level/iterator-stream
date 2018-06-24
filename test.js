@@ -40,10 +40,163 @@ test('keys and values', function (t) {
   }))
 })
 
-test('.destroy closes the stream', function (t) {
-  var stream = iteratorStream(db.iterator())
-  stream.on('close', t.end.bind(t))
+test('normal event order', function (t) {
+  var iterator = db.iterator()
+  var stream = iteratorStream(iterator)
+
+  var order = monitor(iterator, stream, function () {
+    t.same(order.filter(withoutDataEvents), ['_end', 'end', 'close'])
+    t.end()
+  })
+})
+
+test('error from iterator.next', function (t) {
+  var iterator = db.iterator()
+  var stream = iteratorStream(iterator)
+
+  var order = monitor(iterator, stream, function () {
+    t.same(order, ['_end', 'error: next', 'close'], 'event order')
+    t.end()
+  })
+
+  iterator.next = function (cb) {
+    process.nextTick(cb, new Error('next'))
+  }
+})
+
+test('error from iterator end', function (t) {
+  var iterator = db.iterator()
+  var stream = iteratorStream(iterator)
+  var _end = iterator._end
+
+  var order = monitor(iterator, stream, function () {
+    t.same(order.filter(withoutDataEvents), ['_end', 'end', 'error: end', 'close'])
+    t.end()
+  })
+
+  iterator._end = function (cb) {
+    order.push('_end')
+    _end.call(this, function (err) {
+      t.ifError(err)
+      cb(new Error('end'))
+    })
+  }
+})
+
+test('.destroy', function (t) {
+  var iterator = db.iterator()
+  var stream = iteratorStream(iterator)
+
+  var order = monitor(iterator, stream, function () {
+    t.same(order, ['_end', 'close'])
+    t.end()
+  })
+
   stream.destroy()
+})
+
+test('.destroy(err)', function (t) {
+  var iterator = db.iterator()
+  var stream = iteratorStream(iterator)
+
+  var order = monitor(iterator, stream, function () {
+    t.same(order, ['_end', 'error: user', 'close'])
+    t.end()
+  })
+
+  stream.destroy(new Error('user'))
+})
+
+test('.destroy(err, callback)', function (t) {
+  var iterator = db.iterator()
+  var stream = iteratorStream(iterator)
+
+  var order = monitor(iterator, stream, function () {
+    t.same(order, ['_end', 'callback', 'close'])
+    t.end()
+  })
+
+  stream.destroy(new Error('user'), function (err) {
+    order.push('callback')
+    t.is(err.message, 'user', 'got error')
+  })
+})
+
+test('.destroy(null, callback)', function (t) {
+  var iterator = db.iterator()
+  var stream = iteratorStream(iterator)
+
+  var order = monitor(iterator, stream, function () {
+    t.same(order, ['_end', 'callback', 'close'])
+    t.end()
+  })
+
+  stream.destroy(null, function (err) {
+    order.push('callback')
+    t.ifError(err, 'no error')
+  })
+})
+
+test('.destroy() during iterator.next', function (t) {
+  var iterator = db.iterator()
+  var stream = iteratorStream(iterator)
+
+  var order = monitor(iterator, stream, function () {
+    t.same(order, ['_end', 'close'], 'event order')
+    t.end()
+  })
+
+  iterator.next = function () {
+    stream.destroy()
+  }
+})
+
+test('.destroy(err) during iterator.next', function (t) {
+  var iterator = db.iterator()
+  var stream = iteratorStream(iterator)
+
+  var order = monitor(iterator, stream, function () {
+    t.same(order, ['_end', 'error: user', 'close'], 'event order')
+    t.end()
+  })
+
+  iterator.next = function (cb) {
+    stream.destroy(new Error('user'))
+  }
+})
+
+test('.destroy(err, callback) during iterator.next', function (t) {
+  var iterator = db.iterator()
+  var stream = iteratorStream(iterator)
+
+  var order = monitor(iterator, stream, function () {
+    t.same(order, ['_end', 'callback', 'close'], 'event order')
+    t.end()
+  })
+
+  iterator.next = function (cb) {
+    stream.destroy(new Error('user'), function (err) {
+      order.push('callback')
+      t.is(err.message, 'user', 'got error')
+    })
+  }
+})
+
+test('.destroy(null, callback) during iterator.next', function (t) {
+  var iterator = db.iterator()
+  var stream = iteratorStream(iterator)
+
+  var order = monitor(iterator, stream, function () {
+    t.same(order, ['_end', 'callback', 'close'], 'event order')
+    t.end()
+  })
+
+  iterator.next = function (cb) {
+    stream.destroy(null, function (err) {
+      order.push('callback')
+      t.ifError(err, 'no error')
+    })
+  }
 })
 
 test('.destroy during iterator.next 1', function (t) {
@@ -137,3 +290,33 @@ test('values=false', function (t) {
     t.end()
   })
 })
+
+function monitor (iterator, stream, onClose) {
+  var order = []
+
+  ;['_next', '_end'].forEach(function (method) {
+    var original = iterator[method]
+
+    iterator[method] = function () {
+      order.push(method)
+      original.apply(this, arguments)
+    }
+  })
+
+  ;['data', 'end', 'error', 'close'].forEach(function (event) {
+    stream.on(event, function (err) {
+      if (event === 'error') order.push('error: ' + err.message)
+      else order.push(event)
+    })
+  })
+
+  if (onClose) {
+    stream.on('close', onClose)
+  }
+
+  return order
+}
+
+function withoutDataEvents (event) {
+  return event !== '_next' && event !== 'data'
+}
