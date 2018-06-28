@@ -2,10 +2,18 @@
 
 ## [Unreleased]
 
+## [2.0.3] - 2018-06-28
+
+### Fixed
+* Revert proper destroy (#34) (@ralphtheninja)
+
+**Historical Note** The previous release was meant to restore node 4 and included an additional change by mistake.
+
 ## [2.0.2] - 2018-06-28
 
 ### Changed
 * Restore node 4 (@ralphtheninja)
+* Proper destroy (#34) (@vweevers)
 
 ## [2.0.1] - 2018-06-10
 
@@ -78,7 +86,8 @@
 
 :seedling: Initial release.
 
-[Unreleased]: https://github.com/level/iterator-stream/compare/v2.0.2...HEAD
+[Unreleased]: https://github.com/level/iterator-stream/compare/v2.0.3...HEAD
+[2.0.3]: https://github.com/level/iterator-stream/compare/v2.0.2...v2.0.3
 [2.0.2]: https://github.com/level/iterator-stream/compare/v2.0.1...v2.0.2
 [2.0.1]: https://github.com/level/iterator-stream/compare/v2.0.0...v2.0.1
 [2.0.0]: https://github.com/level/iterator-stream/compare/v1.3.1...v2.0.0
