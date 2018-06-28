@@ -33,7 +33,7 @@
 * Test `.destroy()` during and after `iterator.next()` (@ralphtheninja)
 
 ### Removed
-* Remove node 0.10, 0.12 and iofs from Travis (@greenkeeper, @juliangruber)
+* Remove node 0.10, 0.12 and iojs from Travis (@greenkeeper, @juliangruber)
 * Remove encodings (@ralphtheninja)
 * Remove Makefile (@ralphtheninja)
 
