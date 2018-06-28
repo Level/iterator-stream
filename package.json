@@ -18,7 +18,7 @@
     "through2": "^2.0.0"
   },
   "engines": {
-    "node": ">=6"
+    "node": ">=4"
   },
   "license": "MIT"
 }
