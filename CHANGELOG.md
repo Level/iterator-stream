@@ -2,10 +2,17 @@
 
 ## [Unreleased]
 
+## [3.0.0] - 2018-06-28
+
+### Removed
+* Remove node 4 (@ralphtheninja)
+
 ## [2.0.2] - 2018-06-28
 
 ### Changed
 * Restore node 4 (@ralphtheninja)
+
+**Historical Note** We made a mistake releasing `v2.0.1` with the `engines` field in `package.json` set to node 6 as minimal version. This caused problems for users of yarn. We therefore released `v2.0.2` which restored node 4 and a new major directly after this.
 
 ## [2.0.1] - 2018-06-10
 
@@ -78,7 +85,8 @@
 
 :seedling: Initial release.
 
-[Unreleased]: https://github.com/level/iterator-stream/compare/v2.0.2...HEAD
+[Unreleased]: https://github.com/level/iterator-stream/compare/v3.0.0...HEAD
+[3.0.0]: https://github.com/level/iterator-stream/compare/v2.0.2...v3.0.0
 [2.0.2]: https://github.com/level/iterator-stream/compare/v2.0.1...v2.0.2
 [2.0.1]: https://github.com/level/iterator-stream/compare/v2.0.0...v2.0.1
 [2.0.0]: https://github.com/level/iterator-stream/compare/v1.3.1...v2.0.0
