@@ -3,7 +3,8 @@
   "version": "3.0.0",
   "description": "Turn a leveldown iterator into a readable stream",
   "scripts": {
-    "test": "standard && node test.js"
+    "test": "standard && nyc node test.js",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": "Level/iterator-stream",
   "dependencies": {
@@ -12,7 +13,9 @@
     "xtend": "^4.0.0"
   },
   "devDependencies": {
+    "coveralls": "^3.0.2",
     "leveldown": "^4.0.0",
+    "nyc": "^12.0.2",
     "standard": "^11.0.0",
     "tape": "^4.4.0",
     "through2": "^2.0.0"
