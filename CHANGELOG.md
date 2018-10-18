@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+## [3.0.1] - 2018-10-18
+
+### Fixed
+* Bump `readable-stream` from `^2.0` to `^2.3` to prevent npm dedupe and ensure it has `#destroy()` (@vweevers)
+
 ## [3.0.0] - 2018-06-28
 
 ### Removed
@@ -85,7 +90,8 @@
 
 :seedling: Initial release.
 
-[Unreleased]: https://github.com/level/iterator-stream/compare/v3.0.0...HEAD
+[Unreleased]: https://github.com/level/iterator-stream/compare/v3.0.1...HEAD
+[3.0.1]: https://github.com/level/iterator-stream/compare/v3.0.0...v3.0.1
 [3.0.0]: https://github.com/level/iterator-stream/compare/v2.0.2...v3.0.0
 [2.0.2]: https://github.com/level/iterator-stream/compare/v2.0.1...v2.0.2
 [2.0.1]: https://github.com/level/iterator-stream/compare/v2.0.0...v2.0.1
