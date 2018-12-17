@@ -10,7 +10,7 @@
 * Upgrade `standard` devDependency from `^11.0.0` to `^12.0.0` (@ralphtheninja)
 
 ### Added
-* Add `nyc` and `coveralls` (#39)
+* Add `nyc` and `coveralls` (#39) (@ralphtheninja)
 
 ### Removed
 * Remove node 9 (@ralphtheninja)
