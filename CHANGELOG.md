@@ -2,6 +2,24 @@
 
 ## [Unreleased]
 
+## [4.0.0] - 2018-12-17
+
+### Changed
+* Upgrade `through2` devDependency from `^2.0.0` to `^3.0.0` (@vweevers)
+* Upgrade `readable-stream` dependency from `^2.0.5` to `^3.0.2` (@ralphtheninja)
+* Upgrade `standard` devDependency from `^11.0.0` to `^12.0.0` (@ralphtheninja)
+
+### Added
+* Add `nyc` and `coveralls` (#39)
+
+### Removed
+* Remove node 9 (@ralphtheninja)
+
+## [3.0.1] - 2018-10-18
+
+### Fixed
+* Bump `readable-stream` from `^2.0` to `^2.3` to prevent npm dedupe and ensure it has `#destroy()` (@vweevers)
+
 ## [3.0.0] - 2018-06-28
 
 ### Changed
@@ -97,6 +115,8 @@
 :seedling: Initial release.
 
 [Unreleased]: https://github.com/level/iterator-stream/compare/v3.0.0...HEAD
+[4.0.0]: https://github.com/level/iterator-stream/compare/v3.0.0...v4.0.0
+[3.0.1]: https://github.com/level/iterator-stream/compare/v3.0.0...v3.0.1
 [3.0.0]: https://github.com/level/iterator-stream/compare/v2.0.2...v3.0.0
 [2.0.2]: https://github.com/level/iterator-stream/compare/v2.0.1...v2.0.2
 [2.0.1]: https://github.com/level/iterator-stream/compare/v2.0.0...v2.0.1
