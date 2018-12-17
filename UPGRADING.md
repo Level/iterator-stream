@@ -4,7 +4,7 @@ This document describes breaking changes and how to upgrade. For a complete list
 
 ## v4
 
-Upgraded to `readable-stream@3` which contain several substantial changes and improvements. Since `level-iterator-stream` derives from `readable-stream` we decided to bump major as well. See https://github.com/nodejs/readable-stream#version-3xx for more details.
+Upgraded to [`readable-stream@3`](https://github.com/nodejs/readable-stream#version-3xx) which contains several substantial changes and improvements. Since `level-iterator-stream` derives from `readable-stream` we decided to bump major as well.
 
 ## v3
 
