@@ -48,6 +48,14 @@ When the stream ends, the `iterator` will be closed and afterwards a `"close"` e
 
 `.destroy()` will force close the underlying iterator.
 
+## Contributing
+
+[`Level/iterator-stream`](https://github.com/Level/iterator-stream) is an **OPEN Open Source Project**. This means that:
+
+> Individuals making significant and valuable contributions are given commit-access to the project to contribute as they see fit. This project is more like an open wiki than a standard guarded open source project.
+
+See the [Contribution Guide](https://github.com/Level/community/blob/master/CONTRIBUTING.md) for more details.
+
 ## License
 
 [MIT](LICENSE.md) © 2012-present [Contributors](CONTRIBUTORS.md).
