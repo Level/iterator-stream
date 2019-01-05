@@ -22,6 +22,9 @@
     "tape": "^4.4.0",
     "through2": "^3.0.0"
   },
+  "hallmark": {
+    "community": "level-community"
+  },
   "repository": "Level/iterator-stream",
   "homepage": "https://github.com/Level/iterator-stream",
   "keywords": [
