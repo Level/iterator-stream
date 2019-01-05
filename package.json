@@ -2,11 +2,11 @@
   "name": "level-iterator-stream",
   "version": "4.0.0",
   "description": "Turn a leveldown iterator into a readable stream",
+  "license": "MIT",
   "scripts": {
     "test": "standard && nyc node test.js",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
-  "repository": "Level/iterator-stream",
   "dependencies": {
     "inherits": "^2.0.1",
     "readable-stream": "^3.0.2",
@@ -20,8 +20,8 @@
     "tape": "^4.4.0",
     "through2": "^3.0.0"
   },
+  "repository": "Level/iterator-stream",
   "engines": {
     "node": ">=6"
-  },
-  "license": "MIT"
+  }
 }
