@@ -22,6 +22,9 @@
   },
   "repository": "Level/iterator-stream",
   "homepage": "https://github.com/Level/iterator-stream",
+  "keywords": [
+    "level"
+  ],
   "engines": {
     "node": ">=6"
   }
