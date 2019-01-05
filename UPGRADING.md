@@ -14,8 +14,8 @@ Removed support for node 4.
 
 Encodings were factored out from `levelup` into `encoding-down` and in that process they were removed from this module as well. For more information, please check the corresponding `CHANGELOG.md` for:
 
-* [`levelup`](https://github.com/Level/levelup/blob/master/CHANGELOG.md)
-* [`encoding-down`](https://github.com/Level/encoding-down/blob/master/CHANGELOG.md)
+- [`levelup`](https://github.com/Level/levelup/blob/master/CHANGELOG.md)
+- [`encoding-down`](https://github.com/Level/encoding-down/blob/master/CHANGELOG.md)
 
 If your code relies on `options.decoder` for decoding keys and values you need to handle this yourself, e.g. by a transform stream or similar.
 
