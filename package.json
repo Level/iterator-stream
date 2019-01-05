@@ -21,6 +21,7 @@
     "through2": "^3.0.0"
   },
   "repository": "Level/iterator-stream",
+  "homepage": "https://github.com/Level/iterator-stream",
   "engines": {
     "node": ">=6"
   }
