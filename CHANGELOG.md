@@ -1,6 +1,6 @@
 # Changelog
 
-## [Unreleased]
+## [Unreleased][unreleased]
 
 ## [4.0.0] - 2018-12-17
 
@@ -135,7 +135,7 @@
 
 :seedling: Initial release.
 
-[Unreleased]: https://github.com/level/iterator-stream/compare/v4.0.0...HEAD
+[unreleased]: https://github.com/level/iterator-stream/compare/v4.0.0...HEAD
 
 [4.0.0]: https://github.com/level/iterator-stream/compare/v3.0.0...v4.0.0
 
