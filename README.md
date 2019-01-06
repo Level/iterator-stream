@@ -2,11 +2,10 @@
 
 > Turn a leveldown iterator into a readable stream
 
-[![level badge][level-badge]](https://github.com/level/awesome)
+[![level badge][level-badge]](https://github.com/Level/awesome)
 [![npm](https://img.shields.io/npm/v/level-iterator-stream.svg?label=&logo=npm)](https://www.npmjs.com/package/level-iterator-stream)
 [![Node version](https://img.shields.io/node/v/level-iterator-stream.svg)](https://www.npmjs.com/package/level-iterator-stream)
-[![Build Status](https://img.shields.io/travis/Level/iterator-stream.svg?logo=travis&label=)](https://travis-ci.org/Level/iterator-stream)
-[![dependencies](https://david-dm.org/Level/iterator-stream.svg)](https://david-dm.org/level/iterator-stream)
+[![Travis](https://img.shields.io/travis/Level/iterator-stream.svg?logo=travis&label=)](https://travis-ci.org/Level/iterator-stream)
 [![Coverage Status](https://coveralls.io/repos/github/Level/iterator-stream/badge.svg)](https://coveralls.io/github/Level/iterator-stream)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 [![npm](https://img.shields.io/npm/dm/level-iterator-stream.svg?label=dl)](https://www.npmjs.com/package/level-iterator-stream)
