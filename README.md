@@ -1,6 +1,6 @@
 # level-iterator-stream
 
-> Turn a leveldown iterator into a readable stream
+> Turn an [abstract-leveldown](https://github.com/Level/abstract-leveldown) iterator into a readable stream.
 
 [![level badge][level-badge]](https://github.com/Level/awesome)
 [![npm](https://img.shields.io/npm/v/level-iterator-stream.svg?label=&logo=npm)](https://www.npmjs.com/package/level-iterator-stream)
