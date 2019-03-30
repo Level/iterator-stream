@@ -2,6 +2,18 @@
 
 ## [Unreleased][unreleased]
 
+## [4.0.1] - 2019-03-30
+
+### Changed
+
+- Upgrade `leveldown` devDependency from `^4.0.0` to `^5.0.0` ([#52](https://github.com/Level/iterator-stream/issues/52)) ([**@vweevers**](https://github.com/vweevers))
+- Upgrade `nyc` devDependency from `^12.0.2` to `^13.2.0` ([#51](https://github.com/Level/iterator-stream/issues/51)) ([**@vweevers**](https://github.com/vweevers))
+- Apply common project tweaks ([#49](https://github.com/Level/iterator-stream/issues/49), [#50](https://github.com/Level/iterator-stream/issues/50), [`fece33a`](https://github.com/Level/iterator-stream/commit/fece33a), [`b3b3b6c`](https://github.com/Level/iterator-stream/commit/b3b3b6c)) ([**@vweevers**](https://github.com/vweevers))
+
+### Fixed
+
+- Fix reference to undefined definition in `CHANGELOG.md` ([`aa88961`](https://github.com/Level/iterator-stream/commit/aa88961)) ([**@vweevers**](https://github.com/vweevers))
+
 ## [4.0.0] - 2018-12-17
 
 ### Changed
@@ -135,7 +147,9 @@
 
 :seedling: Initial release.
 
-[unreleased]: https://github.com/level/iterator-stream/compare/v4.0.0...HEAD
+[unreleased]: https://github.com/level/iterator-stream/compare/v4.0.1...HEAD
+
+[4.0.1]: https://github.com/level/iterator-stream/compare/v4.0.0...v4.0.1
 
 [4.0.0]: https://github.com/level/iterator-stream/compare/v3.0.0...v4.0.0
 
