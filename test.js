@@ -291,6 +291,20 @@ test('values=false', function (t) {
   })
 })
 
+// It's important to keep a reference to the iterator at least until we end,
+// to prevent GC of the iterator and therefor its db (esp. for native addons).
+test('keeps a reference to the iterator', function (t) {
+  var it = db.iterator()
+  var stream = iteratorStream(it)
+
+  stream.on('close', function () {
+    t.is(stream._iterator, it, 'has reference')
+    t.end()
+  })
+
+  stream.resume()
+})
+
 function monitor (iterator, stream, onClose) {
   var order = []
 
