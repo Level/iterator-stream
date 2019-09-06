@@ -147,7 +147,7 @@
 
 [4.0.1]: https://github.com/Level/iterator-stream/compare/v4.0.0...v4.0.1
 
-[4.0.0]: https://github.com/Level/iterator-stream/compare/v3.0.0...v4.0.0
+[4.0.0]: https://github.com/Level/iterator-stream/compare/v3.0.1...v4.0.0
 
 [3.0.1]: https://github.com/Level/iterator-stream/compare/v3.0.0...v3.0.1
 
