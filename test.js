@@ -320,6 +320,25 @@ test('keeps a reference to the iterator', function (t) {
   stream.resume()
 })
 
+// Note: also serves as teardown of above tests
+test('it is safe to close db on end of stream', function (t) {
+  // Set highWaterMark to 0 so that we don't preemptively fetch.
+  var it = db.iterator({ highWaterMark: 0 })
+  var stream = iteratorStream(it)
+
+  stream.on('end', function () {
+    // Although the underlying iterator is still alive at this point (before
+    // the 'close' event has been emitted) it's safe to close the db because
+    // leveldown (v5) ends any open iterators before closing.
+    db.close(function (err) {
+      t.ifError(err, 'no error')
+      t.end()
+    })
+  })
+
+  stream.resume()
+})
+
 function monitor (iterator, stream, onClose) {
   var order = []
 
