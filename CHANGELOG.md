@@ -1,5 +1,20 @@
 # Changelog
 
+_**If you are upgrading:** please see [`UPGRADING.md`](UPGRADING.md)._
+
+## [4.0.2] - 2019-10-05
+
+### Changed
+
+- Upgrade `hallmark` devDependency from `^0.1.0` to `^2.0.0` ([#58](https://github.com/Level/iterator-stream/issues/58), [#61](https://github.com/Level/iterator-stream/issues/61)) ([**@vweevers**](https://github.com/vweevers))
+- Upgrade `standard` devDependency from `^12.0.0` to `^14.0.0` ([#57](https://github.com/Level/iterator-stream/issues/57), [#60](https://github.com/Level/iterator-stream/issues/60)) ([**@vweevers**](https://github.com/vweevers))
+- Upgrade `nyc` devDependency from `^13.2.0` to `^14.0.0` ([#55](https://github.com/Level/iterator-stream/issues/55)) ([**@vweevers**](https://github.com/vweevers))
+- Tweak tests ([#62](https://github.com/Level/iterator-stream/issues/62)) ([**@vweevers**](https://github.com/vweevers))
+
+### Added
+
+- Test that stream keeps a reference to the iterator ([`16a4dd5`](https://github.com/Level/iterator-stream/commit/16a4dd5)) ([**@vweevers**](https://github.com/vweevers))
+
 ## [4.0.1] - 2019-03-30
 
 ### Changed
@@ -144,6 +159,8 @@
 ## 1.0.0 - 2015-03-29
 
 :seedling: Initial release.
+
+[4.0.2]: https://github.com/Level/iterator-stream/compare/v4.0.1...v4.0.2
 
 [4.0.1]: https://github.com/Level/iterator-stream/compare/v4.0.0...v4.0.1
 
