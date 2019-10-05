@@ -1,5 +1,2 @@
-db
-db-test
 .nyc_output/
-
 .travis.yml

@@ -1,8 +1,8 @@
 var test = require('tape')
-var path = require('path')
 var leveldown = require('leveldown')
 var iteratorStream = require('./')
 var through2 = require('through2')
+var tempy = require('tempy')
 
 var db
 var data = [
@@ -12,7 +12,7 @@ var data = [
 ]
 
 test('setup', function (t) {
-  db = leveldown(path.join(__dirname, 'db-test'))
+  db = leveldown(tempy.directory())
   db.open(function (err) {
     t.error(err, 'no error')
     db.batch(data, function (err) {
