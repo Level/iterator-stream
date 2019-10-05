@@ -3,6 +3,7 @@ var leveldown = require('leveldown')
 var iteratorStream = require('./')
 var through2 = require('through2')
 var tempy = require('tempy')
+var addSecretListener = require('secret-event-listener')
 
 var db
 var data = [
@@ -48,6 +49,8 @@ test('normal event order', function (t) {
     t.same(order.filter(withoutDataEvents), ['_end', 'end', 'close'])
     t.end()
   })
+
+  stream.resume()
 })
 
 test('error from iterator.next', function (t) {
@@ -62,6 +65,8 @@ test('error from iterator.next', function (t) {
   iterator.next = function (cb) {
     process.nextTick(cb, new Error('next'))
   }
+
+  stream.resume()
 })
 
 test('error from iterator end', function (t) {
@@ -81,6 +86,8 @@ test('error from iterator end', function (t) {
       cb(new Error('end'))
     })
   }
+
+  stream.resume()
 })
 
 test('.destroy', function (t) {
@@ -149,6 +156,8 @@ test('.destroy() during iterator.next', function (t) {
   iterator.next = function () {
     stream.destroy()
   }
+
+  stream.resume()
 })
 
 test('.destroy(err) during iterator.next', function (t) {
@@ -163,6 +172,8 @@ test('.destroy(err) during iterator.next', function (t) {
   iterator.next = function (cb) {
     stream.destroy(new Error('user'))
   }
+
+  stream.resume()
 })
 
 test('.destroy(err, callback) during iterator.next', function (t) {
@@ -180,6 +191,8 @@ test('.destroy(err, callback) during iterator.next', function (t) {
       t.is(err.message, 'user', 'got error')
     })
   }
+
+  stream.resume()
 })
 
 test('.destroy(null, callback) during iterator.next', function (t) {
@@ -197,6 +210,8 @@ test('.destroy(null, callback) during iterator.next', function (t) {
       t.ifError(err, 'no error')
     })
   }
+
+  stream.resume()
 })
 
 test('.destroy during iterator.next 1', function (t) {
@@ -318,14 +333,15 @@ function monitor (iterator, stream, onClose) {
   })
 
   ;['data', 'end', 'error', 'close'].forEach(function (event) {
-    stream.on(event, function (err) {
+    // Add listener without side effects (like triggering flowing mode)
+    addSecretListener(stream, event, function (err) {
       if (event === 'error') order.push('error: ' + err.message)
       else order.push(event)
     })
   })
 
   if (onClose) {
-    stream.on('close', onClose)
+    addSecretListener(stream, 'close', onClose)
   }
 
   return order

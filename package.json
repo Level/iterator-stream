@@ -22,6 +22,7 @@
     "level-community": "^3.0.0",
     "leveldown": "^5.0.0",
     "nyc": "^14.0.0",
+    "secret-event-listener": "^1.0.0",
     "standard": "^14.0.0",
     "tape": "^4.4.0",
     "tempy": "0.2.1",
