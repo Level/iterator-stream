@@ -2,15 +2,24 @@
 
 This document describes breaking changes and how to upgrade. For a complete list of changes including minor and patch releases, please refer to the [changelog](CHANGELOG.md).
 
-## v4
+## 5.0.0
+
+This release drops support of legacy runtime environments ([Level/community#98](https://github.com/Level/community/issues/98)):
+
+- Node.js 6 and 8
+- Internet Explorer 11
+- Safari 9-11
+- Stock Android browser (AOSP).
+
+## 4.0.0
 
 Upgraded to [`readable-stream@3`](https://github.com/nodejs/readable-stream#version-3xx) which contains several substantial changes and improvements. Since `level-iterator-stream` derives from `readable-stream` we decided to bump major as well.
 
-## v3
+## 3.0.0
 
 Removed support for node 4.
 
-## v2
+## 2.0.0
 
 Encodings were factored out from `levelup` into `encoding-down` and in that process they were removed from this module as well. For more information, please check the corresponding `CHANGELOG.md` for:
 

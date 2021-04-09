@@ -2,6 +2,14 @@
 
 _**If you are upgrading:** please see [`UPGRADING.md`](UPGRADING.md)._
 
+## [5.0.0] - 2021-04-09
+
+### Changed
+
+- **Breaking:** drop node 6 and 8 ([Level/community#98](https://github.com/Level/community/issues/98)) ([`4259b6b`](https://github.com/Level/iterator-stream/commit/4259b6b)) (Vincent Weevers)
+- **Breaking:** modernize syntax and bump `standard` ([Level/community#98](https://github.com/Level/community/issues/98)) ([`ce274c8`](https://github.com/Level/iterator-stream/commit/ce274c8)) (Vincent Weevers)
+- Add `files` to `package.json` ([`142cdbd`](https://github.com/Level/iterator-stream/commit/142cdbd)) (Vincent Weevers)
+
 ## [4.0.2] - 2019-10-05
 
 ### Changed
@@ -159,6 +167,8 @@ _**If you are upgrading:** please see [`UPGRADING.md`](UPGRADING.md)._
 ## 1.0.0 - 2015-03-29
 
 :seedling: Initial release.
+
+[5.0.0]: https://github.com/Level/iterator-stream/compare/v4.0.2...v5.0.0
 
 [4.0.2]: https://github.com/Level/iterator-stream/compare/v4.0.1...v4.0.2
 
