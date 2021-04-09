@@ -17,37 +17,36 @@
 **If you are upgrading:** please see [UPGRADING.md](UPGRADING.md).
 
 ```js
-var iteratorStream = require('level-iterator-stream')
-var leveldown = require('leveldown')
+const iteratorStream = require('level-iterator-stream')
+const leveldown = require('leveldown')
 
-var db = leveldown(__dirname + '/db')
+const db = leveldown(__dirname + '/db')
+
 db.open(function (err) {
   if (err) throw err
 
-  var stream = iteratorStream(db.iterator())
+  const stream = iteratorStream(db.iterator())
   stream.on('data', function (kv) {
     console.log('%s -> %s', kv.key, kv.value)
   })
 })
 ```
 
-## Installation
+## Install
 
-```bash
-$ npm install level-iterator-stream
+With [npm](https://npmjs.org) do:
+
+```
+npm install level-iterator-stream
 ```
 
 ## API
 
 ### `stream = iteratorStream(iterator[, options])`
 
-Create a readable stream from `iterator`. `options` are passed down to the `require('readable-stream').Readable` constructor, with `objectMode` forced to `true`.
+Create a readable stream from `iterator`. The `options` are passed down to the `require('readable-stream').Readable` constructor, with `objectMode` forced to `true`. Set `options.keys` or `options.values` to `false` to only get keys or values. Otherwise receive `{ key, value }` objects.
 
-Set `options.keys` or `options.values` to `false` to only get values / keys. Otherwise receive `{ key, value }` objects.
-
-When the stream ends, the `iterator` will be closed and afterwards a `"close"` event emitted.
-
-`.destroy()` will force close the underlying iterator.
+Upon stream end or `.destroy()` the `iterator` will be closed after which a `close` event is emitted on the stream.
 
 ## Contributing
 
