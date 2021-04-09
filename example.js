@@ -1,13 +1,14 @@
-var iteratorStream = require('./')
-var leveldown = require('leveldown')
-var path = require('path')
+const iteratorStream = require('.')
+const leveldown = require('leveldown')
+const path = require('path')
 
-var db = leveldown(path.join(__dirname, 'db'))
+const db = leveldown(path.join(__dirname, 'db'))
+
 db.open(function (err) {
   if (err) throw err
 
-  var ops = []
-  for (var i = 0; i < 1000; i++) {
+  const ops = []
+  for (let i = 0; i < 1000; i++) {
     ops.push({
       type: 'put',
       key: String(Math.random()),
@@ -18,7 +19,7 @@ db.open(function (err) {
   db.batch(ops, function (err) {
     if (err) throw err
 
-    var stream = iteratorStream(db.iterator())
+    const stream = iteratorStream(db.iterator())
     stream.on('data', function (kv) {
       console.log('%s -> %s', kv.key, kv.value)
     })
