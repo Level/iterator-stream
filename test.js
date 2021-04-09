@@ -1,10 +1,9 @@
 'use strict'
 
 const test = require('tape')
-const leveldown = require('leveldown')
+const memdown = require('memdown')
 const iteratorStream = require('.')
 const through2 = require('through2')
-const tempy = require('tempy')
 const addSecretListener = require('secret-event-listener')
 
 let db
@@ -15,7 +14,7 @@ const data = [
 ]
 
 test('setup', function (t) {
-  db = leveldown(tempy.directory())
+  db = memdown()
   db.open(function (err) {
     t.error(err, 'no error')
     db.batch(data, function (err) {
