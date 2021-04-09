@@ -10,6 +10,14 @@
     "dependency-check": "dependency-check . test.js",
     "prepublishOnly": "npm run dependency-check"
   },
+  "files": [
+    "index.js",
+    "package.json",
+    "CHANGELOG.md",
+    "CONTRIBUTORS.md",
+    "LICENSE.md",
+    "UPGRADING.md"
+  ],
   "dependencies": {
     "inherits": "^2.0.4",
     "readable-stream": "^3.4.0"
