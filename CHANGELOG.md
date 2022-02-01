@@ -1,8 +1,8 @@
 # Changelog
 
-_**If you are upgrading:** please see [`UPGRADING.md`](UPGRADING.md)._
-
 ## [5.0.0] - 2021-04-09
+
+_If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md)._
 
 ### Changed
 
@@ -59,6 +59,8 @@ _**If you are upgrading:** please see [`UPGRADING.md`](UPGRADING.md)._
 
 ## [3.0.0] - 2018-06-28
 
+_The previous release was meant to restore node 4 and included an additional change by mistake._
+
 ### Changed
 
 - Proper destroy ([#34](https://github.com/Level/iterator-stream/issues/34)) ([**@vweevers**](https://github.com/vweevers))
@@ -73,16 +75,14 @@ _**If you are upgrading:** please see [`UPGRADING.md`](UPGRADING.md)._
 
 - Revert proper destroy ([#34](https://github.com/Level/iterator-stream/issues/34)) ([**@ralphtheninja**](https://github.com/ralphtheninja))
 
-**Historical Note** The previous release was meant to restore node 4 and included an additional change by mistake.
-
 ## [2.0.2] - 2018-06-28
+
+_We made a mistake releasing `v2.0.1` with the `engines` field in `package.json` set to node 6 as minimal version. This caused problems for users of yarn. We therefore released `v2.0.2` which restored node 4 and a new major directly after this._
 
 ### Changed
 
 - Restore node 4 ([**@ralphtheninja**](https://github.com/ralphtheninja))
 - Proper destroy ([#34](https://github.com/Level/iterator-stream/issues/34)) ([**@vweevers**](https://github.com/vweevers))
-
-**Historical Note** We made a mistake releasing `v2.0.1` with the `engines` field in `package.json` set to node 6 as minimal version. This caused problems for users of yarn. We therefore released `v2.0.2` which restored node 4 and a new major directly after this.
 
 ## [2.0.1] - 2018-06-10
 

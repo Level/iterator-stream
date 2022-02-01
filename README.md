@@ -1,21 +1,21 @@
 # level-iterator-stream
 
-> Turn an [abstract-leveldown](https://github.com/Level/abstract-leveldown) iterator into a readable stream.
+**Turn an [abstract-leveldown](https://github.com/Level/abstract-leveldown) iterator into a readable stream.**
+
+> :pushpin: Only compatible with `abstract-leveldown`. For `abstract-level` please see [`level-read-stream`](https://github.com/Level/read-stream).
 
 [![level badge][level-badge]](https://github.com/Level/awesome)
-[![npm](https://img.shields.io/npm/v/level-iterator-stream.svg?label=&logo=npm)](https://www.npmjs.com/package/level-iterator-stream)
+[![npm](https://img.shields.io/npm/v/level-iterator-stream.svg)](https://www.npmjs.com/package/level-iterator-stream)
 [![Node version](https://img.shields.io/node/v/level-iterator-stream.svg)](https://www.npmjs.com/package/level-iterator-stream)
-[![Test](https://github.com/Level/iterator-stream/actions/workflows/test.yml/badge.svg)](https://github.com/Level/iterator-stream/actions/workflows/test.yml)
-[![Coverage Status](https://codecov.io/gh/Level/iterator-stream/branch/master/graph/badge.svg)](https://codecov.io/gh/Level/iterator-stream)
-
-[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
-[![npm](https://img.shields.io/npm/dm/level-iterator-stream.svg?label=dl)](https://www.npmjs.com/package/level-iterator-stream)
-[![Backers on Open Collective](https://opencollective.com/level/backers/badge.svg?color=orange)](#backers)
-[![Sponsors on Open Collective](https://opencollective.com/level/sponsors/badge.svg?color=orange)](#sponsors)
+[![Test](https://img.shields.io/github/workflow/status/Level/iterator-stream/Test?label=test)](https://github.com/Level/iterator-stream/actions/workflows/test.yml)
+[![Coverage](https://img.shields.io/codecov/c/github/Level/iterator-stream?label=&logo=codecov&logoColor=fff)](https://codecov.io/gh/Level/iterator-stream)
+[![Standard](https://img.shields.io/badge/standard-informational?logo=javascript\&logoColor=fff)](https://standardjs.com)
+[![Common Changelog](https://common-changelog.org/badge.svg)](https://common-changelog.org)
+[![Donate](https://img.shields.io/badge/donate-orange?logo=open-collective\&logoColor=fff)](https://opencollective.com/level)
 
 ## Usage
 
-**If you are upgrading:** please see [UPGRADING.md](UPGRADING.md).
+_If you are upgrading: please see [UPGRADING.md](UPGRADING.md)._
 
 ```js
 const iteratorStream = require('level-iterator-stream')
@@ -57,20 +57,8 @@ Upon stream end or `.destroy()` the `iterator` will be closed after which a `clo
 
 See the [Contribution Guide](https://github.com/Level/community/blob/master/CONTRIBUTING.md) for more details.
 
-## Donate
-
-To sustain [`Level`](https://github.com/Level) and its activities, become a backer or sponsor on [Open Collective](https://opencollective.com/level). Your logo or avatar will be displayed on our 28+ [GitHub repositories](https://github.com/Level) and [npm](https://www.npmjs.com/) packages. 💖
-
-### Backers
-
-[![Open Collective backers](https://opencollective.com/level/backers.svg?width=890)](https://opencollective.com/level)
-
-### Sponsors
-
-[![Open Collective sponsors](https://opencollective.com/level/sponsors.svg?width=890)](https://opencollective.com/level)
-
 ## License
 
-[MIT](LICENSE.md) © 2012-present [Contributors](CONTRIBUTORS.md).
+[MIT](LICENSE)
 
 [level-badge]: https://leveljs.org/img/badge.svg
